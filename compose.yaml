@@ -1,11 +1,12 @@
 services:
   scoreboard:
     build: .
-    port:
+    ports:
       - "3000:3000"
     environment:
       - DATABASE_URL=postgresql://arcade-master:arcade-password@arcade-db:5432/postgres
-    depends_on: -db
+    depends_on:
+      - arcade-db
 
   arcade-db:
     image: postgres:18
