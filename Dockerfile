@@ -10,4 +10,5 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist/
 COPY --from=builder /app/package*.json ./
 RUN npm install --omit=dev
+ENV NODE_ENV=production
 CMD ["npm", "run", "start:prod"]

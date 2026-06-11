@@ -1,0 +1,19 @@
+services:
+  scoreboard:
+    build: .
+    port:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://arcade-master:arcade-password@arcade-db:5432/postgres
+    depends_on: -db
+
+  arcade-db:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+volumes:
+  pgdata:

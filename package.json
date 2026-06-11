@@ -5,7 +5,7 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc",
-    "star:prod": "node dist/index.js"
+    "start:prod": "node dist/index.js"
   },
   "devDependencies": {
     "typescript": "^5.x"
